@@ -2,6 +2,8 @@
 import { useState } from "react";
 import "./style.css";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 
 const NavBar = () => {
   const [menuLateral, setMenuLateral] = useState(false);
@@ -18,9 +20,11 @@ const NavBar = () => {
         <div className="menuLateral">
           <div className="fechar" onClick={()=> setMenuLateral(!menuLateral)}>X</div>
           <ul>
-            <li>ITEM 1</li>
-            <li>ITEM 2</li>
-            <li>ITEM 3</li>
+          <li> <Link href="/home">Home</Link> </li>
+            <li> <Link href="/noticias/produto">Produto</Link> </li>
+            <li>  <Link href="/noticias/tecnologia">Tecnologia</Link> </li>
+            <li> <Link href="/noticias/rh">RH</Link> </li>
+            <li> <Link href="/noticias/vendas"> Vendas</Link></li>
           </ul>
         </div>
       )}

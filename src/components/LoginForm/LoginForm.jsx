@@ -1,6 +1,8 @@
 'use client'
 
 import {useState} from 'react'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 const LoginForm = () => {
   const [form, setForm] = useState({
@@ -8,10 +10,21 @@ const LoginForm = () => {
     password: ''
   })
 
+  const router = useRouter()
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
   e.preventDefault();
-  console.log('login ok', form)
+  try {
+     const result = await axios.post('http://localhost:8080/login', form)
+     alert(result.data.message)
+     router.push('/admin/noticia/criar')
+     //console.log('login ok', form)
+  } catch (error) {
+    alert(error.response.data.message)
+  }
+  console.log(result)
+  //console.log('login ok', form)
   }
 
 
