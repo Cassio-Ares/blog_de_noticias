@@ -4,7 +4,7 @@ import "./style.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-
+// TO DO css e colocar icones para menu lateral e logo 
 const NavBar = () => {
   const [menuLateral, setMenuLateral] = useState(false);
   const router = useRouter();

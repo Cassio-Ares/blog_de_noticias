@@ -1,4 +1,6 @@
 'use client'
+import './style.css'
+
 
 import CardNoticia from "../cardNoticia/CardNoticia"
 
