@@ -1,7 +1,7 @@
 import CadastroForm from '@/components/cadastroForm/CadastroForm'
 import React from 'react'
 
-const CadastoPage = () => {
+const CadastroPage = () => {
   return (
     <div>
         <CadastroForm />
@@ -9,4 +9,4 @@ const CadastoPage = () => {
   )
 }
 
-export default CadastoPage
+export default CadastroPage

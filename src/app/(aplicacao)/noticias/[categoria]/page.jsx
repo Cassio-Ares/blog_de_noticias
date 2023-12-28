@@ -20,12 +20,11 @@ const NoticiaPage = ({params}) => {
     getNoticia()
   }, [])
   
-
-
+ 
   return (
    <div>
      <h1>{params.categoria.toUpperCase()}</h1>
-     <GridNoticia/>
+        <GridNoticia  noticias={noticias}/> 
    </div>
   )
 }

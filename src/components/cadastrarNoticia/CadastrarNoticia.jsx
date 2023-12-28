@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 const CadastrarNoticia = () => {
   const [titulo, setTitulo] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState();
   const [texto, setTexto] = useState("");
   const [categoria, setCategoria] = useState("");
 
@@ -20,17 +20,14 @@ const CadastrarNoticia = () => {
         titulo,
         img,
         texto,
-        categoria,
+        categoria
       };
 
-      const result = await axios.post(
-        "http://localhost:8080/noticias",
-        formulario
-      );
+      const result = await axios.post( "http://localhost:8080/noticias", formulario );
       alert("Nova noticia cadastrada");
       return router.push("/home");
     } catch (error) {
-      error.response.data.message;
+      alert(error.response.data.message);
     }
 
     console.log("cadastrar ok", titulo, img, texto);
@@ -48,7 +45,7 @@ const CadastrarNoticia = () => {
     if (name === "texto") {
       setTexto(value);
     }
-    if (name === "categotia") {
+    if (name === "categoria") {
       setCategoria(value);
     }
   };
@@ -73,13 +70,14 @@ const CadastrarNoticia = () => {
       <div>
         <label htmlFor="categoria">Categoria</label>
         <select name="categoria" onChange={handleChange}>
-          <option value="produtos">Produto</option>
+          <option>Categorias</option>
+          <option value="produto">Produto</option>
           <option value="tecnologia">Tecnologia</option>
           <option value="rh">RH</option>
           <option value="vendas">Vendas</option>
         </select>
       </div>
-      <button type="submit">Enviar</button>
+      <button type="submit">Criar noticia</button>
     </form>
   );
 };

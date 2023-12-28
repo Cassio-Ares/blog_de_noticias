@@ -1,8 +1,11 @@
 "use client";
+import { useState } from "react";
 import "./style.css";
 
-const CardNoticia = ({ noticia }) => {
+const CardNoticia = ({noticia}) => {
   const [isHover, setIsHover] = useState(false);
+  console.log(noticia);
+
   return (
     <div className="card-noticia">
       <div
@@ -18,7 +21,7 @@ const CardNoticia = ({ noticia }) => {
       </div>
 
       <h2>{noticia.titulo}</h2>
-      <p dangerouslySetInnerHTML={{ __html }}>{noticia.texto}</p>
+      <p dangerouslySetInnerHTML={{__html:noticia.texto}}/>
       <hr />
       <div className="publicado-em">
         {new Date(noticia.createdAt).toLocaleDateString("pt-BR")}

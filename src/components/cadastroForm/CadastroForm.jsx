@@ -1,33 +1,33 @@
 'use client'
 
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation'
 import {useState} from "react";
 
 const CadastroForm = () => {
   const [name,SetName]= useState("");
   const [email,SetEmail]= useState("");
-  const [password,SetPassword]= useState("");
+  const [senha,SetSenha]= useState("");
 
   const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const form = {
+      const formulario = {
         name, 
         email, 
         senha
       }
 
-      const result = await axios.post('http://localhost:8080/usuarios', form)
+      const result = await axios.post('http://localhost:8080/usuarios', formulario)
       alert("Usuario foi cadastrado com sucesso");
-      router.push('/adm/noticia/criar')
+      router.push('/admin/noticia/criar')
       
     } catch (error) {
-      
+      alert(error.response.data.message);
     }
-    console.log("Cadastro realizado com sucesso!", name, email, password);
+     //console.log("Cadastro realizado com sucesso!", name, email, senha)
   };
   
   const handleChange = (e) => {
@@ -41,8 +41,8 @@ const CadastroForm = () => {
       case "email":
         SetEmail(value);
         break;
-      case "password":
-        SetPassword(value);
+      case "senha":
+        SetSenha(value);
         break;
      }
   }
@@ -60,7 +60,7 @@ const CadastroForm = () => {
         </div>
         <div>
           <label htmlFor="password">Senha</label>
-          <input type="password" name="password" onChange={handleChange} />
+          <input type="password" name="senha" onChange={handleChange} />
         </div>
         <button type="submit">Enviar</button>
       </form>

@@ -19,33 +19,33 @@ const HomePage = () => {
     }
   };
 
-  const getNoticiaMaisPopular = () =>{
-    if(noticias){
-      return noticias.find(noticia => noticia.isPopular)
-    }
-  }
+  // const getNoticiaMaisPopular = () =>{
+  //   if(noticias){
+  //     return noticias.find(noticia => noticia.isPopular)
+  //   }
+  // }
 
-  const getUltimasNoticias = () =>{
-    if(noticias){
-      return noticias.filter(noticia => noticia.isUltima)
-    }
-  }
+  // const getUltimasNoticias = () =>{
+  //   if(noticias){
+  //     return noticias.filter(noticia => noticia.isUltima)
+  //   }
+  // }
 
   useEffect(() => {
     getNoticias();
   }, []);
 
   return (
-    <main className="grid-home">
-      {getNoticiaMaisPopular() && <LateralEsquerda noticias={getNoticiaMaisPopular()} /> }
+    // <main >
+    //   {getNoticiaMaisPopular() && <LateralEsquerda noticias={getNoticiaMaisPopular()} /> }
       
       <section>
         {noticias.map((noticia) => (
-          <Noticia noticia={noticia} key={noticia.id} />
+          <Noticia  key={noticia.id} noticia={noticia}/>
         ))}
       </section>
-      {getUltimasNoticias() && <LateralDireita noticias={getNoticiaMaisPopular()} />}
-    </main>
+    //   {getUltimasNoticias() && <LateralDireita noticias={getNoticiaMaisPopular()} />}
+    // </main>
   );
 };
 

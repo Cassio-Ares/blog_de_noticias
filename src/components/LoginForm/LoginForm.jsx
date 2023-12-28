@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 const LoginForm = () => {
   const [form, setForm] = useState({
     email: '',
-    password: ''
+    senha: ''
   })
 
   const router = useRouter()
@@ -19,12 +19,10 @@ const LoginForm = () => {
      const result = await axios.post('http://localhost:8080/login', form)
      alert(result.data.message)
      router.push('/admin/noticia/criar')
-     //console.log('login ok', form)
   } catch (error) {
     alert(error.response.data.message)
   }
-  console.log(result)
-  //console.log('login ok', form)
+
   }
 
 
@@ -47,7 +45,7 @@ const LoginForm = () => {
         </div>
         <div>
             <label>Senha</label>
-            <input type="password" name="password" onChange={handleChange}/>
+            <input type="password" name="senha" onChange={handleChange}/>
         </div>
         <button type="submit">Login</button>
      </form>
