@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import LateralEsquerda from "@/components/lateralEsquerda/LateralEsquerda";
 import LateralDireita from "@/components/lateralDireita/LateralDireita";
-import './style.css'
-
+import "./style.css";
 
 const HomePage = () => {
   const [noticias, setNoticias] = useState([]);
@@ -19,33 +18,32 @@ const HomePage = () => {
     }
   };
 
-  // const getNoticiaMaisPopular = () =>{
-  //   if(noticias){
-  //     return noticias.find(noticia => noticia.isPopular)
-  //   }
-  // }
+  const getNoticiaMaisPopular = () => {
+    if (noticias) {
+      return noticias.find((noticia) => noticia.isPopular);
+    }
+  };
 
-  // const getUltimasNoticias = () =>{
-  //   if(noticias){
-  //     return noticias.filter(noticia => noticia.isUltima)
-  //   }
-  // }
+  const getUltimasNoticias = () => {
+    if (noticias) {
+      return noticias.filter((noticia) => noticia.isUltimas);
+    }
+  };
 
   useEffect(() => {
     getNoticias();
   }, []);
 
   return (
-    // <main >
-    //   {getNoticiaMaisPopular() && <LateralEsquerda noticias={getNoticiaMaisPopular()} /> }
-      
+    <main className="home">
+      <div>{ getNoticiaMaisPopular() && <LateralEsquerda noticia={getNoticiaMaisPopular()} />}</div>
       <section>
         {noticias.map((noticia) => (
-          <Noticia  key={noticia.id} noticia={noticia}/>
+          <Noticia key={noticia.id} noticia={noticia} />
         ))}
       </section>
-    //   {getUltimasNoticias() && <LateralDireita noticias={getNoticiaMaisPopular()} />}
-    // </main>
+      <div>{ getUltimasNoticias() && <LateralDireita noticias= {getUltimasNoticias()} />}</div>
+    </main>
   );
 };
 

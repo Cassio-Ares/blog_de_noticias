@@ -2,20 +2,19 @@
 import { useState } from "react";
 import "./style.css";
 
-const CardNoticia = ({noticia}) => {
+const CardNoticia = ({noticia, temHover=false}) => {
   const [isHover, setIsHover] = useState(false);
-  console.log(noticia);
-
+ 
   return (
     <div className="card-noticia">
       <div
         style={{ position: "relative" }}
-        onMouseEnter={true}
-        onMouseLeave={false}
+        onMouseEnter={()=> setIsHover(temHover ? true : false)}
+        onMouseLeave={()=> setIsHover(false)}
       >
         <div className="popular" style={{opacity: isHover ? '1' : '0'}}> Clique aqui </div>
         <div
-          className="imagem"
+          className="image"
           style={{ backgroundImage: `url(${noticia.img})` }}
         />
       </div>

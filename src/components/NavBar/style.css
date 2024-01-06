@@ -5,30 +5,66 @@
     height: 50px;
     background-color: aliceblue;
     align-items: center;
-    color: red;
+    color: #000;
+    margin-bottom: 2.5rem;
+}
+
+.navBar .logo{
+    color: #fccd07;
+    font-weight: bolder;
+    font-size: 1.7rem;
 }
 
 .navBar button{
-    color: red;
+    color: #000;
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
 
+
+
+.navBar .login{
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #fccd07;
+    color: #000;
+    border-radius: .5rem;
+}
+
+
 .menuLateral{
     height: 100vh;
     width: 200px;
     background: white;
-    color: red;
+    color: #0f0f0f;
     position: fixed;
     top: 0;
     left: 0;
     padding: 0 1rem;
+    z-index: 2;
 }
 
-.fechar{
- display: flex;
- justify-content: flex-end;
- cursor: pointer;
- padding: 0 1rem;
+.menuLateral li{
+    margin-bottom: 1rem;
 }
+
+.menuLateral li:hover{
+    color: #fccd07;
+}
+
+
+.menuLateral .fechar{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding:  1rem;
+    color: #000;
+   }
+
+   
+   
+.navBar .icon{
+    font-size: 1.4rem
+}
+

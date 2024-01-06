@@ -1,5 +1,7 @@
-.grid-home{
+.home{
+    background: #000;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 30px;
+    margin-top: 30px;
 }

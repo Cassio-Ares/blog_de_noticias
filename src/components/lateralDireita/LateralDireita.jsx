@@ -1,22 +1,26 @@
 import { trucateWithEllipses } from "@/libs/trucateWithEllipses";
-import CardNoticia from "../cardNoticia/CardNoticia"
-import './style.css';
+import CardNoticia from "../cardNoticia/CardNoticia";
+import "./style.css";
 
 const LateralDireita = ({ noticias }) => {
-  const noticiasComEllipse = ()=>{
-    return noticias.map((index, noticia)=>{
-      noticia.texto = trucateWithEllipses(noticia.texto, 100 );
-      return <CardNoticia key={index} noticia= {noticia }/>
-    })
-  }
+
+
+  const ultimasNoticias = () => {
+   return noticias.map((noticia, index) => {
+      noticia.texto = trucateWithEllipses(noticia.texto, 100);
+      return <CardNoticia key={index} noticia={noticia} />;
+     
+    });
+  };
+
   return (
-    <div>
-      <div>Última Noticia</div>
-      <div style={{marginBottom: '20px'}}>
-        {noticiasComEllipse.length && noticiasComEllipse()}
+    <div className="ultimas-Noticias">
+      <div className="titulo">Última Noticia</div>
+      <div style={{ marginBottom: "20px" }}>
+        {noticias.length && ultimasNoticias()}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LateralDireita
+export default LateralDireita;
